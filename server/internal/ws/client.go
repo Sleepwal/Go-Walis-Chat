@@ -14,13 +14,13 @@ type Client struct {
 	WsConn   *ghttp.WebSocket
 	Message  chan *Message
 	ID       string `json:"id"`
-	RoomID   string `json:"roomId"`
+	RoomID   string `json:"room_id"`
 	Username string `json:"username"`
 }
 
 type Message struct {
 	Content  string `json:"content"`
-	RoomID   string `json:"roomId"`
+	RoomID   string `json:"room_id"`
 	Username string `json:"username"`
 }
 

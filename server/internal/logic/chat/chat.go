@@ -62,8 +62,8 @@ func (s *sChat) GetRooms(ctx context.Context) (out *model.ChatRoomsOutput, err e
 
 	for _, room := range s.hub.Rooms {
 		out.List = append(out.List, model.RoomItem{
-			ID:       room.ID,
-			Username: room.Name,
+			ID:   room.ID,
+			Name: room.Name,
 		})
 	}
 	return

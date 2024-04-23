@@ -42,7 +42,7 @@ func (c *cChat) JoinRoom(ctx context.Context, req *v1.ChatJoinRoomReq) (res *v1.
 		Message:  make(chan *ws.Message, 10),
 		ID:       req.UserId,
 		RoomID:   req.RoomID,
-		Username: req.UserName,
+		Username: req.Username,
 	})
 
 	return

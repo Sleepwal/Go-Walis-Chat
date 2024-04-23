@@ -17,7 +17,7 @@ type ChatWebsocketReq struct {
 type ChatWebsocketRes struct{}
 
 type ChatCreateRoomReq struct {
-	g.Meta   `path:"/chat/create_room" method:"get"  tags:"ChatService" summary:"Create room"`
+	g.Meta   `path:"/chat/create_room" method:"post"  tags:"ChatService" summary:"Create room"`
 	RoomID   string `v:"required#Please input a correct room id" json:"room_id"`
 	RoomName string `v:"required#Please input a correct room name" json:"room_name"`
 }
@@ -27,7 +27,7 @@ type ChatJoinRoomReq struct {
 	g.Meta   `path:"/chat/join_room" method:"get"  tags:"ChatService" summary:"Join room"`
 	RoomID   string `v:"required#Please input a correct room id" json:"room_id"`
 	UserId   string `v:"required#user_id is required" json:"user_id"`
-	UserName string `v:"required|max-length:21#Please input a correct user name" json:"user_name"`
+	Username string `v:"required|max-length:21#Please input a correct user name" json:"username"`
 }
 type ChatJoinRoomRes struct{}
 

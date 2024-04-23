@@ -7,8 +7,8 @@ type ChatMsg struct {
 }
 
 type RoomItem struct {
-	ID       string `json:"id"`
-	Username string `json:"username"`
+	ID   string `json:"id"`
+	Name string `json:"name"`
 }
 type ChatRoomsOutput struct {
 	List []RoomItem `json:"list"`
