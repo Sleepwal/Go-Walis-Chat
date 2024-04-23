@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col md:flex-row h-full  font-sans">
-    <router-view></router-view>
-  </div>
+  <router-view />
 </template>
 
 <style>

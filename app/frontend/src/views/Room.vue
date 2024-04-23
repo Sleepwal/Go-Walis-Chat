@@ -42,16 +42,22 @@ const joinRoom = (roomId: string) => {
 </script>
 
 <template>
-  <div class="my-8 px-4 md:mx-32 w-full h-full">
+  <div class="my-8 px-4 md:mx-32 h-full">
     <div>{{ user }}</div>
     <div class="flex justify-center mt-3 p-5">
-      <input v-model="roomName" type="text"
-             placeholder="Enter Room Name"
-             class="rounded-md p-3 border border-grey focus:outline-none focus:border-blue" />
-      <button @click="createNewRoom"
-              class="bg-blue border text-white rounded-md p-2 md:ml-4">
+      <n-input
+          v-model:value="roomName"
+          type="text" autosize
+           placeholder="Enter Room Name"
+           class="rounded-md p-1 mr-2 min-w-52"
+      />
+      <n-button
+          type="primary"
+          @click="createNewRoom"
+          class="rounded-md p-5"
+      >
         Create Room
-      </button>
+      </n-button>
     </div>
 
     <div class="mt-6">
@@ -64,15 +70,14 @@ const joinRoom = (roomId: string) => {
               <div class="text-sm">Room</div>
               <div class="text-blue font-bold text-lg">{{ room.name }}</div>
 
-              <button @click="joinRoom(room.id)"
-                      class="px-4 text-white bg-blue rounded-md">
+              <n-button @click="joinRoom(room.id)" size="small"
+                      class="text-white bg-blue rounded-md">
                 Join
-              </button>
+              </n-button>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>

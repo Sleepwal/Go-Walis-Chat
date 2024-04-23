@@ -75,6 +75,7 @@ onUnmounted(() => {
 
 const content = ref('')
 const sendMessage = () => {
+  console.log(content.value)
   if (!content.value.trim()) {
     return
   }
@@ -87,26 +88,29 @@ const sendMessage = () => {
 
 <template>
   <div class="flex flex-col w-full">
-    <div class="p-4 md:mx-6 mb-14">
-      <ChatBody :data="messages" />
-    </div>
+    <n-scrollbar style="height: 70vh">
+      <div class="p-4 md:mx-6 mb-14">
+        <ChatBody :data="messages" />
+      </div>
+    </n-scrollbar>
 
     <div class="fixed bottom-0 mt-4 w-full">
-      <div class="flex md:flex-row px-4 py-2 bg-grey md:mx-4 rounded-md">
+      <div class="flex md:flex-row px-4 py-2 md:mx-4 rounded-md">
         <div class="flex w-full mr-4 rounded-md border border-blue">
-          <textarea
-              v-model="content"
+          <n-input
+              v-model:value="content"
+              type="textarea"
               placeholder="type your message here"
-              class="w-full h-10 p-2 rounded-md focus:outline-none"
-              style="resize: none;"
+              class=" p-2 rounded-md"
+              :autosize="{ minRows: 1 }"
           />
         </div>
 
         <div class="flex items-center">
-          <button @click="sendMessage"
-                  class="p-2 rounded-md bg-blue text-white">
+          <n-button @click="sendMessage" type="success"
+                  class="p-2 rounded-md">
             Send
-          </button>
+          </n-button>
         </div>
 
       </div>

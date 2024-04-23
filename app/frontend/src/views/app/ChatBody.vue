@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
 import {Message} from "@/types/chat";
+import {PropType} from "vue";
 
 const props = defineProps({
   data: {
-    type: Array<Message>,
+    type: Array as PropType<Array<Message> | null >,
     required: true
   }
 })
@@ -21,9 +22,11 @@ const props = defineProps({
         <div class="text-sm">{{item.username}}</div>
 
         <div>
-          <div class="bg-blue text-white px-4 py-1 rounded-md inline-block mt-1">
-            {{item.content}}
-          </div>
+          <n-tag type="success" class="p-4 rounded-md">
+            <n-gradient-text gradient="linear-gradient(to right, #12c2e9, #c471ed, #f64f59">
+              {{item.content}}
+            </n-gradient-text>
+          </n-tag>
         </div>
       </div>
 
@@ -33,9 +36,11 @@ const props = defineProps({
         <div class="text-sm">{{item.username}}</div>
 
         <div>
-          <div class="bg-grey text-white px-4 py-1 rounded-md inline-block mt-1">
-            {{item.content}}
-          </div>
+          <n-tag class="p-4 rounded-md">
+            <n-gradient-text type="info">
+              {{item.content}}
+            </n-gradient-text>
+          </n-tag>
         </div>
       </div>
     </div>
